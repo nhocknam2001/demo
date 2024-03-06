@@ -1,0 +1,16 @@
+.others {
+  padding: 25px;
+  flex: 4;
+  background-color: #fcfcfd;
+}
+
+.sidebar {
+  flex: 1;
+  height: calc(100vh - 64px);
+}
+.create-job-flex {
+  @apply flex flex-row items-center justify-between gap-5;
+}
+.create-job-input {
+  @apply block w-full flex-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6 shadow-sm;
+}
