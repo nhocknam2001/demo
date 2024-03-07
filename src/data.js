@@ -13,7 +13,7 @@ export const list = [
     dueDate: "14 Feb 2024",
     total: "$1,200.00",
     method: "PayPal",
-    status: "Overdue    ",
+    status: "Overdue",
   },
   {
     id: "DEV5434",
@@ -29,7 +29,7 @@ export const list = [
     dueDate: "03 Mar 2024",
     total: "$192.00",
     method: "Credit Card",
-    status: "Paid",
+    status: "Draft",
   },
   {
     id: "DEV5437",

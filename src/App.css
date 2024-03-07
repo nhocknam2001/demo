@@ -1,13 +1,12 @@
 .others {
   padding: 25px;
-  flex: 4;
   background-color: #fcfcfd;
 }
 
 .sidebar {
-  flex: 1;
   height: calc(100vh - 64px);
 }
+
 .create-job-flex {
   @apply flex flex-row items-center justify-between gap-5;
 }

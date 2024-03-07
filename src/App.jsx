@@ -12,12 +12,11 @@ function App() {
   return (
     <Router>
       <Topbar />
-      <div className=" flex h-full w-full pl-2 border-r-2">
-        <div className="sidebar">
+      <div className=" flex h-full border-r-2 bg-neutral-50 border-l">
+        <div className="sidebar w-2/12">
           <Sidebar />
         </div>
-
-        <div className="others bg-slate-50">
+        <div className="others bg-neutral-50 border-l w-10/12">
           <Routes>
             <Route exact path="/" element={<ListInvoices />} />
             <Route path="/create" element={<CreateInvoices />} />

@@ -36,7 +36,7 @@ const CreateInvoices = () => {
       </div>
 
       {/* FORM */}
-      <div className=" max-w-screen-2xl container mx-auto shadow-2xl border rounded-md">
+      <div className=" max-w-screen-2xl container mx-auto shadow-xl border rounded-md bg-white">
         {/* Form */}
         <div className=" py-5 px-7">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
@@ -157,9 +157,7 @@ const CreateInvoices = () => {
                       required
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
-                            <AttachMoneyOutlinedIcon />
-                          </InputAdornment>
+                          <InputAdornment position="start">$</InputAdornment>
                         ),
                       }}
                       type="number"
@@ -179,9 +177,7 @@ const CreateInvoices = () => {
                       size="small"
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start">
-                            <AttachMoneyOutlinedIcon />
-                          </InputAdornment>
+                          <InputAdornment position="start">$ </InputAdornment>
                         ),
                       }}
                     ></TextField>

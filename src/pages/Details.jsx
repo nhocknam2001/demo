@@ -49,7 +49,7 @@ const Details = () => {
       <div className="flex space-x-5 pt-7">
         {/* Left */}
         <div className="w-2/3 space-y-5">
-          <Box className="shadow-lg border-0.5 font-medium border rounded-md">
+          <Box className="shadow-lg border-0.5 font-medium border rounded-md bg-white">
             {/* row1 */}
             <div className=" p-4 border-b font-semibold">Invoice Details</div>
             <Box className="flex flex-row p-4 text-sm">
@@ -79,7 +79,7 @@ const Details = () => {
               </div>
             </Box>
           </Box>
-          <Box className="shadow-lg border-0.5 font-medium border rounded-md">
+          <Box className="shadow-lg border-0.5 font-medium border rounded-md bg-white">
             {/* row2 */}
             <div className=" p-4 border-b font-semibold">Invoice Details</div>
             <Box className="flex flex-row p-4 text-sm">
@@ -115,19 +115,19 @@ const Details = () => {
           </Box>
           <Box className="shadow-lg border-0.5 font-medium border rounded-md">
             {/* row3 */}
-            <div className=" p-4 border-b font-semibold">Payment</div>
+            <div className=" p-4 border-b font-semibold bg-white">Payment</div>
             <BasicTable />
           </Box>
         </div>
         {/* Right */}
         <div className=" w-1/3 space-y-5">
-          <div className="shadow-lg border-0.5 font-medium border rounded-md">
+          <div className="shadow-lg border-0.5 font-medium border rounded-md bg-white">
             <div className=" p-4 border-b font-semibold">Quick Actions</div>
             <div className=" py-4 px-5 flex-col space-y-3 font-medium text-sm">
               <DropdownButton options={dropOptions} />
               <AlertDialogSlide message="Email sent successfully!" />
             </div>
-            <div className=" py-3 bg-gray-200 font-normal text-sm">
+            <div className=" py-3 bg-neutral-100 font-normal text-sm">
               <Link to="/preview">
                 <div className="cursor-pointer hover:bg-gray-300 space-x-4 items-center py-2">
                   <span className=" pl-4">
@@ -163,7 +163,7 @@ const Details = () => {
             </div>
           </div>
           {/*  */}
-          <div className="shadow-lg border-0.5 font-medium border rounded-md">
+          <div className="shadow-lg border-0.5 font-medium border rounded-md bg-white">
             <div className=" p-4 border-b font-semibold">Payment History</div>
             <div className=" py-4 px-5 flex-col space-y-3 font-medium text-sm">
               <div className="flex flex-row items-center space-x-3 font-normal">
