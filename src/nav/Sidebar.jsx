@@ -27,7 +27,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className=" pt-6 sidebar text-sm flex-col font-medium text-neutral-700"
+      className=" pt-6 text-sm flex-col font-medium text-neutral-700 fixed"
       aria-labelledby="nested-list-subheader"
     >
       <ListItemButton>
