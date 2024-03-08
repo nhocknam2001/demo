@@ -2,9 +2,9 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { list } from "../data";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import ActionPopper from "./ActionPopover";
 import CustomFilter from "./FilterValueButton";
+import StatusRenderColor from "./StatusRenderColor";
 
 function CustomToolbar() {
   return (
@@ -73,48 +73,7 @@ export default function DataTable() {
       headerName: "Status",
       width: 120,
       type: "string",
-      renderCell: (params) => {
-        if (params.row.status === "Ongoing") {
-          return (
-            <>
-              <span className=" mr-2 text-blue-500">
-                <FiberManualRecordIcon fontSize="" />
-              </span>
-              {params.row.status}
-            </>
-          );
-        }
-        if (params.row.status === "Paid") {
-          return (
-            <>
-              <span className=" mr-2 text-green-500">
-                <FiberManualRecordIcon fontSize="" />
-              </span>
-              {params.row.status}
-            </>
-          );
-        }
-        if (params.row.status === "Overdue") {
-          return (
-            <>
-              <span className=" mr-2 text-red-500">
-                <FiberManualRecordIcon fontSize="" />
-              </span>
-              {params.row.status}
-            </>
-          );
-        }
-        if (params.row.status === "Draft") {
-          return (
-            <>
-              <span className=" mr-2 text-orange-400">
-                <FiberManualRecordIcon fontSize="" />
-              </span>
-              {params.row.status}
-            </>
-          );
-        }
-      },
+      renderCell: (params) => <StatusRenderColor status={params.row.status} />,
     },
     {
       field: "actions",

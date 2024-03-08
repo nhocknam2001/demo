@@ -8,8 +8,26 @@ import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 
 import AlertDialogSlide from "../components/Notification";
 import DropdownButton from "../components/Dropdown";
+import { useState } from "react";
 
 const Details = () => {
+  const [openDialog, setOpenDialog] = useState(false); // State for controlling dialog visibility
+  const [dialogMessage, setDialogMessage] = useState(""); // State for storing dialog message
+
+  // Function to handle opening the dialog and setting its message
+  const handleOpenDialog = (message) => {
+    setDialogMessage(message); // Set the message for the dialog
+    setOpenDialog(true); // Open the dialog
+    // Automatically close the dialog after 1 second
+    setTimeout(() => {
+      setOpenDialog(false);
+    }, 1000);
+  };
+
+  // Function to handle closing the dialog
+  const handleCloseDialog = () => {
+    setOpenDialog(false); // Close the dialog
+  };
   const dropOptions = [
     { label: "Invoice created", value: "option1" },
     { label: "Payment received", value: "option2" },
@@ -125,7 +143,12 @@ const Details = () => {
             <div className=" p-4 border-b font-semibold">Quick Actions</div>
             <div className=" py-4 px-5 flex-col space-y-3 font-medium text-sm">
               <DropdownButton options={dropOptions} />
-              <AlertDialogSlide message="Email sent successfully!" />
+              <div
+                className=" rounded-md p-3 py-2 border-2 w-fit text-green-600 cursor-pointer"
+                onClick={() => handleOpenDialog("Message for Dialog 1")}
+              >
+                Send Email
+              </div>
             </div>
             <div className=" py-3 bg-neutral-100 font-normal text-sm">
               <Link to="/preview">
@@ -137,11 +160,12 @@ const Details = () => {
                 </div>
               </Link>
               <div className="cursor-pointer hover:bg-gray-300 space-x-4 items-center py-2">
-                <span className=" pl-4">
+                <span className="pl-4">
                   <RemoveRedEyeOutlinedIcon fontSize="small" />
                 </span>
                 <span>Mark Paid</span>
               </div>
+
               <div className="cursor-pointer hover:bg-gray-300 space-x-4 items-center py-2">
                 <span className=" pl-4">
                   <RemoveRedEyeOutlinedIcon fontSize="small" />
@@ -161,8 +185,12 @@ const Details = () => {
                 <span>Delete</span>
               </div>
             </div>
+            <AlertDialogSlide
+              open={openDialog} // Pass the state of the dialog
+              message={dialogMessage} // Pass the message for the dialog
+              onClose={handleCloseDialog} // Pass the function to close the dialog
+            />
           </div>
-          {/*  */}
           <div className="shadow-lg border-0.5 font-medium border rounded-md bg-white">
             <div className=" p-4 border-b font-semibold">Payment History</div>
             <div className=" py-4 px-5 flex-col space-y-3 font-medium text-sm">

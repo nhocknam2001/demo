@@ -4,7 +4,7 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 
 const Topbar = () => {
   return (
-    <div className="w-full border flex justify-between items-center px-5 h-16 sticky top-0 bg-white z-10">
+    <div className="w-full border flex justify-between items-center px-5 h-16 sticky top-0 bg-white z-10 ">
       {/* Left Side */}
       <div className="flex justify-between items-center w-36">
         <GoogleIcon className=" cursor-pointer" />

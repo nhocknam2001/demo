@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import * as React from "react";
+import React, { useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -9,39 +9,30 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide({ message }) {
-  const [open, setOpen] = React.useState(false);
+export default function AlertDialogSlide({ open, message, onClose }) {
+  useEffect(() => {
+    if (open) {
+      const timer = setTimeout(() => {
+        onClose(); // Close the dialog after 1 second
+      }, 1000);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+      return () => clearTimeout(timer); // Cleanup timer on unmount or when open changes
+    }
+  }, [open, onClose]);
 
   return (
-    <React.Fragment>
-      <div
-        className=" rounded-md p-3 py-2 border-2 w-fit text-green-600 cursor-pointer"
-        onClick={handleClickOpen}
-      >
-        Send Email
-      </div>
-
-      <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            {message}
-          </DialogContentText>
-        </DialogContent>
-      </Dialog>
-    </React.Fragment>
+    <Dialog
+      open={open}
+      TransitionComponent={Transition}
+      keepMounted
+      onClose={onClose}
+      aria-describedby="alert-dialog-slide-description"
+    >
+      <DialogContent>
+        <DialogContentText id="alert-dialog-slide-description">
+          {message}
+        </DialogContentText>
+      </DialogContent>
+    </Dialog>
   );
 }
